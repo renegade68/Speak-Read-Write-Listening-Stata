@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.1 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="5.50in" height="4.00in" viewBox="0 0 3960 2880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="3960" height="2880" style="fill:#EAF2F3;stroke:none"/>
+	<rect x="0.00" y="0.00" width="3959.88" height="2880.00" style="fill:#EAF2F3"/>
+	<rect x="2.88" y="2.88" width="3954.12" height="2874.24" style="fill:none;stroke:#EAF2F3;stroke-width:5.76"/>
+	<rect x="433.25" y="419.90" width="3425.77" height="1749.26" style="fill:#FFFFFF"/>
+	<rect x="436.13" y="422.78" width="3420.01" height="1743.50" style="fill:none;stroke:#FFFFFF;stroke-width:5.76"/>
+	<line x1="433.25" y1="2169.16" x2="3859.02" y2="2169.16" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="433.25" y1="1757.06" x2="3859.02" y2="1757.06" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="433.25" y1="1344.96" x2="3859.02" y2="1344.96" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="433.25" y1="932.86" x2="3859.02" y2="932.86" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<line x1="433.25" y1="520.76" x2="3859.02" y2="520.76" style="stroke:#EAF2F3;stroke-width:8.64"/>
+	<rect x="669.98" y="1509.80" width="680.25" height="659.36" style="fill:#1A476F"/>
+	<rect x="672.86" y="1512.68" width="674.49" height="653.60" style="fill:none;stroke:#1A476F;stroke-width:5.76"/>
+	<rect x="669.98" y="1262.54" width="680.25" height="247.26" style="fill:#90353B"/>
+	<rect x="672.86" y="1265.42" width="674.49" height="241.50" style="fill:none;stroke:#90353B;stroke-width:5.76"/>
+	<rect x="669.98" y="520.76" width="680.25" height="741.78" style="fill:#C0C0C0"/>
+	<rect x="672.86" y="523.64" width="674.49" height="736.02" style="fill:none;stroke:#C0C0C0;stroke-width:5.76"/>
+	<rect x="1806.01" y="1509.80" width="680.25" height="659.36" style="fill:#1A476F"/>
+	<rect x="1808.89" y="1512.68" width="674.49" height="653.60" style="fill:none;stroke:#1A476F;stroke-width:5.76"/>
+	<rect x="1806.01" y="1427.38" width="680.25" height="82.42" style="fill:#90353B"/>
+	<rect x="1808.89" y="1430.26" width="674.49" height="76.66" style="fill:none;stroke:#90353B;stroke-width:5.76"/>
+	<rect x="1806.01" y="520.76" width="680.25" height="906.62" style="fill:#C0C0C0"/>
+	<rect x="1808.89" y="523.64" width="674.49" height="900.86" style="fill:none;stroke:#C0C0C0;stroke-width:5.76"/>
+	<rect x="2942.03" y="1262.54" width="680.25" height="906.62" style="fill:#1A476F"/>
+	<rect x="2944.91" y="1265.42" width="674.49" height="900.86" style="fill:none;stroke:#1A476F;stroke-width:5.76"/>
+	<rect x="2942.03" y="1180.12" width="680.25" height="82.42" style="fill:#90353B"/>
+	<rect x="2944.91" y="1183.00" width="674.49" height="76.66" style="fill:none;stroke:#90353B;stroke-width:5.76"/>
+	<rect x="2942.03" y="520.76" width="680.25" height="659.36" style="fill:#C0C0C0"/>
+	<rect x="2944.91" y="523.64" width="674.49" height="653.60" style="fill:none;stroke:#C0C0C0;stroke-width:5.76"/>
+	<line x1="433.25" y1="2169.16" x2="433.25" y2="419.90" style="stroke:#000000;stroke-width:5.76"/>
+	<line x1="433.25" y1="2169.16" x2="393.15" y2="2169.16" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="373.23" y="2204.19" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="end">0</text>
+	<line x1="433.25" y1="1757.06" x2="393.15" y2="1757.06" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="373.23" y="1792.09" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="end">5</text>
+	<line x1="433.25" y1="1344.96" x2="393.15" y2="1344.96" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="373.23" y="1379.99" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="end">10</text>
+	<line x1="433.25" y1="932.86" x2="393.15" y2="932.86" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="373.23" y="967.89" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="end">15</text>
+	<line x1="433.25" y1="520.76" x2="393.15" y2="520.76" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="373.23" y="555.78" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="end">20</text>
+	<text x="190.71" y="1294.59" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" transform="rotate(-90 190.71,1294.59)" text-anchor="middle">Clips (20 per target word)</text>
+	<line x1="433.25" y1="2169.16" x2="3859.02" y2="2169.16" style="stroke:#000000;stroke-width:5.76"/>
+	<text x="1010.17" y="2279.06" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">yes</text>
+	<text x="2146.20" y="2279.06" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">no</text>
+	<text x="3282.10" y="2279.06" style="font-family:'Helvetica';font-size:99.99px;fill:#000000" text-anchor="middle">stop</text>
+	<text x="450.45" y="2657.95" style="font-family:'Helvetica';font-size:79.94px;fill:#000000">Other words: 27/30 rejected. Synthetic pink noise: 5/5 rejected.</text>
+	<text x="450.45" y="2737.89" style="font-family:'Helvetica';font-size:79.94px;fill:#000000">Small predetermined subset of Speech Commands v0.02; not the full benchmark.</text>
+	<text x="2146.20" y="369.63" style="font-family:'Helvetica';font-size:110.01px;fill:#000000" text-anchor="middle">Speakers/sessions disjoint from registration and calibration</text>
+	<text x="2146.20" y="215.98" style="font-family:'Helvetica';font-size:139.96px;fill:#1E2D53" text-anchor="middle">Public audio: first frozen evaluation</text>
+	<rect x="467.77" y="2363.70" width="3356.72" height="186.37" style="fill:#FFFFFF"/>
+	<rect x="470.65" y="2366.58" width="3350.96" height="180.61" style="fill:none;stroke:#000000;stroke-width:5.76"/>
+	<rect x="510.96" y="2406.89" width="372.74" height="99.99" style="fill:#1A476F"/>
+	<rect x="513.84" y="2409.77" width="366.98" height="94.23" style="fill:none;stroke:#1A476F;stroke-width:5.76"/>
+	<rect x="1747.47" y="2406.89" width="372.73" height="99.99" style="fill:#90353B"/>
+	<rect x="1750.35" y="2409.77" width="366.98" height="94.23" style="fill:none;stroke:#90353B;stroke-width:5.76"/>
+	<rect x="2949.58" y="2406.89" width="372.73" height="99.99" style="fill:#C0C0C0"/>
+	<rect x="2952.46" y="2409.77" width="366.98" height="94.23" style="fill:none;stroke:#C0C0C0;stroke-width:5.76"/>
+	<text x="943.35" y="2491.91" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Correct accept</text>
+	<text x="2179.98" y="2491.91" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Wrong accept</text>
+	<text x="3382.09" y="2491.91" style="font-family:'Helvetica';font-size:99.99px;fill:#000000">Rejected</text>
+</svg>

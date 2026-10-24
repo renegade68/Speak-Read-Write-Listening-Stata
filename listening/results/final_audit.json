@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "first_public_evaluation_preserved": true,
+  "model_refitted_after_evaluation": false,
+  "frozen_hashes_match_after_evaluation": 208,
+  "truth_source": "Speech Commands source directory labels; attached after prediction",
+  "personal_voice_or_model_used": false,
+  "metrics": {
+    "known_total": 60,
+    "correct_accept": 27,
+    "wrong_accept": 5,
+    "known_reject": 28,
+    "nearest_correct": 47,
+    "other_total": 30,
+    "other_reject": 27,
+    "other_accept": 3,
+    "noise_total": 5,
+    "noise_reject": 5,
+    "noise_accept": 0,
+    "no_signal": 0
+  },
+  "per_word": {
+    "yes": {
+      "total": 20,
+      "correct_accept": 8,
+      "wrong_accept": 3,
+      "reject": 9,
+      "nearest_correct": 14
+    },
+    "no": {
+      "total": 20,
+      "correct_accept": 8,
+      "wrong_accept": 1,
+      "reject": 11,
+      "nearest_correct": 16
+    },
+    "stop": {
+      "total": 20,
+      "correct_accept": 11,
+      "wrong_accept": 1,
+      "reject": 8,
+      "nearest_correct": 17
+    },
+    "left": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 0,
+      "reject": 5,
+      "nearest_correct": 0
+    },
+    "right": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 0,
+      "reject": 5,
+      "nearest_correct": 0
+    },
+    "on": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 0,
+      "reject": 5,
+      "nearest_correct": 0
+    },
+    "off": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 2,
+      "reject": 3,
+      "nearest_correct": 0
+    },
+    "cat": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 0,
+      "reject": 5,
+      "nearest_correct": 0
+    },
+    "dog": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 1,
+      "reject": 4,
+      "nearest_correct": 0
+    },
+    "pink_noise": {
+      "total": 5,
+      "correct_accept": 0,
+      "wrong_accept": 0,
+      "reject": 5,
+      "nearest_correct": 0
+    }
+  },
+  "confusion": {
+    "yes": {
+      "unrecognized": 9,
+      "yes": 8,
+      "no": 1,
+      "stop": 2
+    },
+    "no": {
+      "unrecognized": 11,
+      "no": 8,
+      "stop": 1
+    },
+    "stop": {
+      "unrecognized": 8,
+      "stop": 11,
+      "no": 1
+    },
+    "left": {
+      "unrecognized": 5
+    },
+    "right": {
+      "unrecognized": 5
+    },
+    "on": {
+      "unrecognized": 5
+    },
+    "off": {
+      "unrecognized": 3,
+      "yes": 1,
+      "stop": 1
+    },
+    "cat": {
+      "unrecognized": 5
+    },
+    "dog": {
+      "unrecognized": 4,
+      "stop": 1
+    },
+    "pink_noise": {
+      "unrecognized": 5
+    }
+  },
+  "cutoff": 7.830564382903245,
+  "minimum_gap": 1.449988721599524,
+  "target_nearest_class_accuracy": 0.7833333333333333,
+  "target_correct_accept_rate": 0.45,
+  "other_word_reject_rate": 0.9
+}

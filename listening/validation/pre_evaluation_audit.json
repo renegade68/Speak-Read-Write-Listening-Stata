@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "calibration_clips_audited": 50,
+  "template_count": 45,
+  "independent_template_distances": 135,
+  "maximum_class_score_error": 8.881784197001252e-16,
+  "calibration_grid_rule_and_tiebreak_match": true,
+  "cutoff": 7.830564382903245,
+  "minimum_gap": 1.449988721599524,
+  "correct_target_accepts": 18,
+  "negative_rejects": 16,
+  "final_evaluation_scored": false
+}

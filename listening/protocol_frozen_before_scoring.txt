@@ -1,0 +1,64 @@
+Public-data experiment protocol, 25 October 2026
+Recorded before feature extraction, calibration scoring, or final evaluation.
+
+Purpose: a small, reproducible Stata/Mata isolated-clip classifier for yes/no/stop.
+This replaces the private-voice distribution. Original Korean experiments stay local.
+No personal recordings, models, or speech-derived results enter this experiment.
+
+Data: Google Speech Commands v0.02, CC BY 4.0.
+Official archive: http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+HTTPS transport: https://storage.googleapis.com/download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+Expected bytes: 2428923189
+Expected SHA256: af14739ee7dc311471de98f5f9d2c9191b18aedfe957f4a6ff791c709868ff58
+Checksum source: tensorflow/datasets, datasets/speech_commands/checksums.tsv.
+Official validation_list.txt and testing_list.txt define the held-out partitions;
+other word recordings are training. Speaker/session ID is the filename prefix
+before _nohash_. Check that selected partitions have no shared speaker/session IDs.
+
+Selection: within each requested split and word, sort by SHA256 of UTF-8
+"mata-public-20261025|" + original relative path; take one file per speaker/session
+until the requested number is reached. Never use audio quality, feature values,
+or prediction results to select/replace a recording. Retain selected failures.
+
+Registration: 15 training clips each of yes/no/stop (45 templates total).
+Calibration: 10 validation clips each of yes/no/stop (30 target clips), plus
+5 validation clips each of go/up/down (15 out-of-vocabulary clips).
+Final evaluation: 20 testing clips each of yes/no/stop (60 target clips), plus
+5 testing clips each of left/right/on/off/cat/dog (30 other-word clips).
+Background: seconds 0..5 of white_noise.wav as five one-second calibration clips;
+seconds 0..5 of pink_noise.wav as five one-second evaluation clips. These are
+synthetic noise sources, not recordings of real ambient silence. Do not report
+their rejection as a general noise/silence benchmark. Retain source attribution.
+Total distributed inputs: 45 registration + 50 calibration + 95 evaluation = 190.
+
+Input preparation: word WAVs copied byte-for-byte; no resampling or augmentation.
+Noise clips cut at exact sample boundaries without amplitude changes. Manifest
+records original paths, hashes, split, labels, source slice, and sample statistics.
+
+Processing: one pre-segmented utterance candidate per file, not a continuous-speech
+detector. Use existing 20 ms RMS frames/10 ms hop, select first and last frame at
+or above max(0.15*maximum RMS, 0.0003), add 50 ms padding. No above-threshold frame
+returns no_signal. Use the original 13-coefficient MFCC and weighted DTW functions
+unchanged; class score is nearest of 15 templates. No tuning of features on final
+evaluation. Recognition receives audio path and model only, never the true label.
+
+Calibration: exhaustively search cutoff in {0} plus finite calibration best
+distances, and gap in {0} plus finite calibration best/second-best gaps.
+Accept iff distance <= cutoff AND gap > minimum_gap; no_signal always rejects.
+Maximize 0.5*(correctly accepted target clips/30 + rejected non-target clips/20).
+On exact ties prefer fewer total false accepts (wrong target + non-target), then
+smaller distance cutoff, then larger minimum gap. This is a fixed empirical rule,
+not probability calibration. Keep all failed/misclassified calibration items.
+
+Before first evaluation: freeze template/model/code/selection/protocol hashes.
+After first evaluation: preserve raw predictions, attach truth for scoring, report
+correct target accept / wrong target accept / target reject separately; report
+other-word and synthetic-noise accepts/rejects separately, plus nearest-class
+accuracy among targets before rejection. No retraining, threshold changes, or
+sample substitution based on this evaluation. Further changes require another
+explicitly identified experiment, and cannot replace this first result.
+
+Release: prepare local GitHub snapshot and Statalist draft only; no remote push
+or forum post is part of this protocol. Rebuild/replay checks are reproducibility
+checks, not new independent evaluations. Code uses Stata/Mata only at runtime;
+Python may fetch/extract/verify source data and audit calculations and packaging.
