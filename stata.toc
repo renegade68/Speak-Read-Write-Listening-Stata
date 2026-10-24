@@ -1,4 +1,4 @@
 v 3
 d Speak-Read-Write-Listening-Stata: experimental Stata extensions
 d Choonjoo Lee, Korea National Defense University
-p pngread Experimental PNG pixel reader and color-to-text example
+p pngread PNG pixel reader, color-to-text, and two-session message exchange

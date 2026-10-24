@@ -64,6 +64,10 @@ conversion. It does not perform OCR or infer text in arbitrary images.
 {cmd:r(has_icc)}, and {cmd:r(has_srgb)}.
 
 {title:References}
+{pstd}
+For grayscale request/reply exchanges that preserve the current dataset,
+see {help pngmessage}. Its SPM1 tile layout differs from the example above.
+
 {pstd}{browse "https://www.w3.org/TR/png-3/":W3C PNG specification}
 {pstd}{browse "https://www.rfc-editor.org/rfc/rfc1950.txt":RFC 1950: zlib}
 {pstd}{browse "https://www.rfc-editor.org/rfc/rfc1951.txt":RFC 1951: DEFLATE}

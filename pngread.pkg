@@ -1,6 +1,6 @@
 v 3
-d pngread: Experimental PNG pixel reader written in Stata/Mata
-d Version 0.1.0, 24 October 2026
+d pngread: PNG pixel reader and grayscale request/reply experiments
+d Version 0.2.0, 24 October 2026
 d Distribution-Date: 20261024
 d Author: Choonjoo Lee, Korea National Defense University
 d Requires Stata 16.1; tested with Stata/MP 16.1 on macOS only
@@ -8,7 +8,10 @@ d License: Academic Free License 3.0; see LICENSE in this repository
 d PNG decoding has no external runtime dependency; optional speech uses macOS say
 f ado/pngread.ado
 f ado/pngread.sthlp
+f ado/pngmessage.ado
+f ado/pngmessage.sthlp
 f examples/hello_stata.png
 f examples/read_hello_stata.do
 f examples/make_hello_stata.do
+f examples/pngmessage_demo.do
 f LICENSE

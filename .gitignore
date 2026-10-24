@@ -10,8 +10,11 @@
 ado/*
 !ado/pngread.ado
 !ado/pngread.sthlp
+!ado/pngmessage.ado
+!ado/pngmessage.sthlp
 !examples/
 examples/*
 !examples/make_hello_stata.do
 !examples/read_hello_stata.do
 !examples/hello_stata.png
+!examples/pngmessage_demo.do
