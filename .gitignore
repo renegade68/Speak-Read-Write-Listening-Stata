@@ -1,0 +1,17 @@
+# Publish only the user distribution; keep research artifacts locally.
+*
+!.gitignore
+!README.md
+!LICENSE
+!CITATION.cff
+!pngread.pkg
+!stata.toc
+!ado/
+ado/*
+!ado/pngread.ado
+!ado/pngread.sthlp
+!examples/
+examples/*
+!examples/make_hello_stata.do
+!examples/read_hello_stata.do
+!examples/hello_stata.png

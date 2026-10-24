@@ -1,0 +1,4 @@
+v 3
+d Speak-Read-Write-Listening-Stata: experimental Stata extensions
+d Choonjoo Lee, Korea National Defense University
+p pngread Experimental PNG pixel reader and color-to-text example
