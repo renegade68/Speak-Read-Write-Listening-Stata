@@ -1,0 +1,40 @@
+Data and model attribution — Google Speech Commands v0.02
+
+Dataset creator/curator: Pete Warden, Google; recordings contributed by the
+Speech Commands volunteers. Published April 2018. No affiliation or endorsement
+of this Stata/Mata experiment by Google or the contributors is implied.
+
+Reference:
+Warden, Pete (2018). Speech Commands: A Dataset for Limited-Vocabulary Speech
+Recognition. arXiv:1804.03209. https://arxiv.org/abs/1804.03209
+
+Original archive:
+http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+HTTPS transport used:
+https://storage.googleapis.com/download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+SHA256: af14739ee7dc311471de98f5f9d2c9191b18aedfe957f4a6ff791c709868ff58
+Verified against TensorFlow Datasets:
+https://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/datasets/speech_commands/checksums.tsv
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+Full original license: data/source_notices/LICENSE.
+Original notices: data/source_notices/README.md and
+data/source_notices/_background_noise__README.md.
+
+Modifications and mapping:
+180 selected word WAVs are unmodified byte copies, renamed locally to opaque
+sample IDs. Ten noise WAVs are one-second excerpts from seconds 0..5 of the
+source white_noise.wav and pink_noise.wav, with fresh PCM16 WAV headers and
+unchanged samples. These two source noises were generated synthetically, as
+the original background README explains. data/selection_manifest.csv maps every
+distributed input to its original path, hash, and any slice boundaries.
+
+The .mmat template models in models/ are derived MFCC representations and
+calibration parameters computed from this subset; they are not Google-provided
+pretrained models. This distribution marks these audio-derived models and
+associated source-derived selection metadata CC BY 4.0 as well. Preserve the
+above attribution and modification notices when redistributing them.
+
+The repository's AFL-3.0 software license applies to code, not as a replacement
+for the above data/model terms. Source notices retain their original terms.

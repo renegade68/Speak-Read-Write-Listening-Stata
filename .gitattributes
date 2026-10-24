@@ -1,0 +1,6 @@
+# Preserve the bytes recorded in the listening experiment's checksum manifests.
+# This includes LF source files and the original CRLF input manifests.
+listening/** -text
+listening/data/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the upstream CC BY license verbatim, including its one trailing space.
+listening/data/source_notices/LICENSE whitespace=blank-at-eof,space-before-tab,-blank-at-eol

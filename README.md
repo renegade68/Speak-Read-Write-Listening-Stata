@@ -1,8 +1,9 @@
 # Speak-Read-Write-Listening-Stata
 
 Experimental user-written extensions for reading, speaking, listening, and
-writing with Stata. Version **0.2.0** adds **PNG message exchange between two
-independent Stata sessions**, including requests, computed replies, and errors.
+writing with Stata. This **prepared 0.3.0 snapshot** adds public-audio
+isolated-word matching (`wordlisten` 0.2.0) and retains the existing 0.2.0
+PNG request/reply commands unchanged.
 Tested with **Stata/MP 16.1 on macOS (Apple Silicon)** only.
 
 | Area | Available |
@@ -10,12 +11,54 @@ Tested with **Stata/MP 16.1 on macOS (Apple Silicon)** only.
 | Reading | `pngread`: import supported PNG pixels using Stata/Mata only |
 | Writing and exchange | `pngmessage`: write and read grayscale message PNGs; respond to `PING`, `SUM`, and `NOBS` |
 | Speaking | Optional example using the macOS `say` service |
-| Listening | Planned; no microphone capture or speech recognition command is included |
+| Listening | `wordlisten`: isolated yes/no/stop matching with public audio templates |
 
 This is a research prototype, not an official Stata product or an SSC package.
 The PNG exchange uses Stata/Mata only and requires no Python, shell command,
 external image library, or AI service. The two processes share PNG files,
 not their datasets, macros, or original message text files.
+
+## Listening with public audio
+
+The [`listening/`](listening/) addition is a small **yes/no/stop** template
+experiment using public **Speech Commands v0.02** clips. The distribution
+contains no experimenter's personal recordings or private-voice models.
+Read [`listening/README.txt`](listening/README.txt) and
+[`DATA_LICENSES.txt`](listening/DATA_LICENSES.txt) for usage and attribution.
+
+Download/extract this repository ZIP, then use your own local path:
+
+```stata
+cd "/your/path/Speak-Read-Write-Listening-Stata/listening"
+do replay.do
+```
+
+The first frozen evaluation used speaker/session IDs absent from registration
+and calibration. Of 60 target clips, **27 were correctly accepted, 5 wrongly
+accepted, and 28 rejected**. The matcher rejected **27/30 other words** and
+**5/5 synthetic pink-noise slices**. Nearest-class accuracy before rejection
+was 47/60; that is distinct from correct acceptance. This small predetermined
+subset is not the full corpus benchmark or a robust voice interface.
+
+![Target accepts and rejections](listening/results/target_decisions.png)
+
+Replay processes 95 supplied evaluation clips and produces 35 accepts,
+including eight false accepts. It preserves the user's dataset and writes
+to `replay_outputs/`. `do rebuild_model.do` rebuilds in a new `rebuild_01/`
+folder using registration/calibration inputs only. These checks do not count
+as new independent evaluations. Models and first results remain unchanged.
+
+Recognition runs in Stata/Mata only, using WAV reading, MFCC features, and
+DTW against 15 public templates per class. It stores fixed English response
+text without speaking or executing it. It handles isolated clips, not live
+microphone input, continuous conversation, or unrestricted transcription.
+Python was used for source-data preparation and independent audits only.
+
+The 190 bundled WAV inputs are public source word files and specified noise
+excerpts. Source mappings, original notices, and CC BY 4.0 terms are included.
+See `listening/SHA256SUMS.txt` for distribution hashes. The existing
+`net install pngread` command below installs the PNG package; use the ZIP
+for the listening experiment.
 
 ## Installation
 
@@ -162,7 +205,8 @@ and RGBA. See `help pngread` for details.
   exactly-once service. Existing output paths are refused, but identifiers
   are not globally deduplicated. Checksums do not authenticate the sender.
 - Other OS/Stata versions and cloud/network shared folders remain untested.
-  Optional speech uses macOS; the package does not implement speech recognition.
+  Optional speech uses macOS. The separate listening experiment is a limited
+  isolated-clip template matcher, with substantial observed errors and rejections.
 
 Local validation covered the PNG reader's five row filters, three DEFLATE block
 types, five supported color types, transparency, and corrupt files, including
@@ -178,13 +222,14 @@ Stata version, exact command, and error message when sharing a result.
 
 ## Development direction, sources, and license
 
-Next experiments include a reusable speech command, more analysis-result
-requests, and a clear distinction between OS dictation and programmatic speech
-recognition. Conversational AI and microphone recognition are not implemented.
+Possible extensions include a reusable speech-output command and more
+analysis-result requests. Conversational AI and live microphone recognition
+are not implemented. Listening limitations are documented with the first results.
 
-Only user commands, help, examples, and installation/citation/license metadata
-are distributed. Development logs, generated exchanges, validation fixtures,
-audio outputs, manuscripts, and research notes remain local.
+The listening addition includes selected public WAVs, derived models,
+source notices, methods, and preserved first results. Private recordings,
+private-voice models, unrelated research outputs, and local execution logs
+are excluded. No personal audio is required to reproduce the supplied example.
 
 The original PNG reader and writer use these specifications:
 
@@ -198,6 +243,8 @@ was used for local reader validation. Those images and libpng source are not
 redistributed; their notices remain with the local test material.
 
 Copyright © 2026 Choonjoo Lee, Korea National Defense University.
-Licensed under the [Academic Free License 3.0](LICENSE).
+Software is licensed under the [Academic Free License 3.0](LICENSE).
+Public Speech Commands audio and the audio-derived models are separately
+licensed CC BY 4.0; see [data attribution and terms](listening/DATA_LICENSES.txt).
 For research use, cite this repository and the version or commit used;
 see [CITATION.cff](CITATION.cff).

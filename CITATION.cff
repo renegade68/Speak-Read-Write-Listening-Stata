@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software in research, please cite this repository and the version or commit used."
 title: "Speak-Read-Write-Listening-Stata: Experimental reading, speaking, listening, and writing extensions"
 repository-code: "https://github.com/renegade68/Speak-Read-Write-Listening-Stata"
-version: "0.2.0"
+version: "0.3.0"
 type: software
 license: AFL-3.0
 authors:
@@ -14,3 +14,6 @@ keywords:
   - Mata
   - PNG
   - text-to-speech
+  - isolated-word recognition
+  - Speech Commands
+  - dynamic time warping
