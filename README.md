@@ -1,9 +1,10 @@
 # Speak-Read-Write-Listening-Stata
 
 Experimental user-written extensions for reading, speaking, listening, and
-writing with Stata. This **prepared 0.3.0 snapshot** adds public-audio
-isolated-word matching (`wordlisten` 0.2.0) and retains the existing 0.2.0
-PNG request/reply commands unchanged.
+writing with Stata. **Listening is implemented as supervised speech-template
+learning, calibration, and isolated-word recognition in Stata/Mata.** Version
+0.3.0 includes the public-audio experiment (`wordlisten` 0.2.0) and the existing
+0.2.0 PNG request/reply commands.
 Tested with **Stata/MP 16.1 on macOS (Apple Silicon)** only.
 
 | Area | Available |
@@ -11,20 +12,43 @@ Tested with **Stata/MP 16.1 on macOS (Apple Silicon)** only.
 | Reading | `pngread`: import supported PNG pixels using Stata/Mata only |
 | Writing and exchange | `pngmessage`: write and read grayscale message PNGs; respond to `PING`, `SUM`, and `NOBS` |
 | Speaking | Optional example using the macOS `say` service |
-| Listening | `wordlisten`: isolated yes/no/stop matching with public audio templates |
+| Listening and speech learning | Implemented: learn labelled audio templates, calibrate acceptance criteria, and recognize isolated yes/no/stop clips with `wordlisten` |
 
 This is a research prototype, not an official Stata product or an SSC package.
 The PNG exchange uses Stata/Mata only and requires no Python, shell command,
 external image library, or AI service. The two processes share PNG files,
 not their datasets, macros, or original message text files.
 
-## Listening with public audio
+## Speech learning and listening in Stata/Mata
 
 The [`listening/`](listening/) addition is a small **yes/no/stop** template
 experiment using public **Speech Commands v0.02** clips. The distribution
 contains no experimenter's personal recordings or private-voice models.
 Read [`listening/README.txt`](listening/README.txt) and
 [`DATA_LICENSES.txt`](listening/DATA_LICENSES.txt) for usage and attribution.
+
+### What is learned?
+
+This is **instance-based supervised learning with calibrated rejection**.
+The model stores labelled examples as MFCC feature sequences, and a separate
+calibration stage fits two acceptance thresholds. The feature transformation
+and DTW distance rule are fixed; no neural-network weights are trained.
+
+| Stage | Data | Operation in Stata/Mata |
+| --- | --- | --- |
+| Template learning | 45 labelled training clips: 15 each for yes, no, and stop | Decode WAVs, trim each utterance, extract MFCC features, and save the labelled template bank in a `.mmat` model |
+| Calibration | 50 separate clips: 30 targets, 15 other words, and 5 noise slices | Use labelled outcomes to select a maximum distance and a minimum gap between the best two class scores |
+| Recognition and evaluation | 95 held-out clips | Compare each clip with the stored templates using DTW, apply the frozen criteria, and save a label or rejection plus fixed response text |
+
+Template construction and threshold fitting are implemented in
+[`01_build_templates.do`](listening/01_build_templates.do) and
+[`03_calibrate.do`](listening/03_calibrate.do), using Mata for the feature and
+calibration calculations. Run `do rebuild_model.do` from the `listening/`
+folder to repeat both learning stages. Evaluation clips are excluded from
+fitting. Python was used only for source-data preparation and independent
+checks; learning and recognition use Stata/Mata.
+
+### Replay the supplied evaluation
 
 Download/extract this repository ZIP, then use your own local path:
 
@@ -222,9 +246,12 @@ Stata version, exact command, and error message when sharing a result.
 
 ## Development direction, sources, and license
 
-Possible extensions include a reusable speech-output command and more
-analysis-result requests. Conversational AI and live microphone recognition
-are not implemented. Listening limitations are documented with the first results.
+Implemented listening covers speech-template learning, threshold calibration,
+and recognition of isolated WAV clips. Future extensions include live
+microphone capture, continuous-audio segmentation, general speech transcription,
+conversational responses, a reusable speech-output command, and more
+analysis-result requests. The current listening results and limitations are
+documented above.
 
 The listening addition includes selected public WAVs, derived models,
 source notices, methods, and preserved first results. Private recordings,
